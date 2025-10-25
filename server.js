@@ -28,6 +28,7 @@ app.use(helmet({
 console.log(process.env.FRONTEND_URL);
 
 app.use(cors({
+   
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   credentials: true
 }));
@@ -94,6 +95,12 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(path.resolve(), '../client/dist/index.html'));
   });
 }
+app.get('/api', (req, res) => {
+  res.json({ 
+    message: 'Backend API is running!', 
+    timestamp: new Date().toISOString() 
+  });
+});
 // Health check
 app.get('/api/health', (req, res) => {
   res.status(200).json({
