@@ -89,10 +89,10 @@ app.use('/api/user', require('./routes/userRoutes'));
 
 // Serve static files from React build in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(path.resolve(), '../client/dist')));
+  app.use(express.static(path.join(path.resolve(), '../dist')));
   
   app.get('*', (req, res) => {
-    res.sendFile(path.join(path.resolve(), '../client/dist/index.html'));
+    res.sendFile(path.join(path.resolve(), '../dist/index.html'));
   });
 }
 app.get('/api', (req, res) => {
