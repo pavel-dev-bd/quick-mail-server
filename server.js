@@ -88,6 +88,7 @@ app.use('/api/template-designs', require('./routes/templateDesigns'));
 app.use('/api/user', require('./routes/userRoutes'));
 
 // Serve static files from React build in production
+<<<<<<< HEAD
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(path.resolve(), '../dist')));
   
@@ -95,6 +96,15 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(path.resolve(), '../dist/index.html'));
   });
 }
+=======
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(path.resolve(), '../client/dist')));
+  
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(path.resolve(), '../client/dist/index.html'));
+//   });
+// }
+>>>>>>> 9a75a313838193a67bf07294ef33df9a16bd36e0
 app.get('/api', (req, res) => {
   res.json({ 
     message: 'Backend API is running!', 
